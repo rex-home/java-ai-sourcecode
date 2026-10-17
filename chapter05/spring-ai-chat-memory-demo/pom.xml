@@ -13,10 +13,25 @@
 
     <artifactId>spring-ai-chat-memory-demo</artifactId>
     <name>spring-ai-chat-memory-demo</name>
-    <description>Module 5.2 Spring AI advisor-style chat memory demo.</description>
+    <description>Module 5.2 real Spring AI ChatClient and HTTP chat memory demo.</description>
+
+    <dependencies>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-validation</artifactId></dependency>
+        <!-- 直接引入模型与客户端，由 ModelConfiguration 创建唯一的 ChatModel。 -->
+        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-openai</artifactId></dependency>
+        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-ollama</artifactId></dependency>
+        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-client-chat</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
+    </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions><execution><goals><goal>repackage</goal></goals></execution></executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

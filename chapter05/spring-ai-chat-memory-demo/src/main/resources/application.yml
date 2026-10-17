@@ -1,0 +1,7 @@
+# 示例默认只监听本机；演示接口没有身份认证，不应直接暴露到公网。
+server:
+  address: 127.0.0.1
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: spring-ai-chat-memory-demo
