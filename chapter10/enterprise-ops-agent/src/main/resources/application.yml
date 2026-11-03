@@ -3,9 +3,9 @@ spring:
     name: enterprise-ops-agent
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:${MYSQL_PORT:3307}/enterprise_ops_agent?useUnicode=true&characterEncoding=utf8&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true}
-    username: ${MYSQL_USERNAME:ops_agent}
-    password: ${MYSQL_PASSWORD:ops_agent_123}
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:${MYSQL_PORT:53306}/enterprise_ops_agent?useUnicode=true&characterEncoding=utf8&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:123456}
     hikari:
       pool-name: enterprise-ops-agent-pool
       maximum-pool-size: ${MYSQL_POOL_SIZE:5}
@@ -16,7 +16,7 @@ server:
 
 ops:
   ai:
-    live: ${RUN_MODEL_CALL:false}
+    live: ${RUN_MODEL_CALL:true}
     # 默认使用 DeepSeek。也可以通过 AI_PROVIDER=ollama 或 AI_PROVIDER=chatgpt 切换。
     provider: ${AI_PROVIDER:deepseek}
   storage:
